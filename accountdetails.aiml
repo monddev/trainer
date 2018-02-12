@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+  <!-- insert your AIML categories here -->
+  <topic name="accountdetails">
+    <category>
+      <pattern>^ YOUR BANK ACCOUNT NUMBER AND THE NAME ON THE ACCOUNT ^</pattern>
+      <template>
+          Sure my name is 
+          <condition name="customername">
+            <li value="unknown">
+                <random>
+                    <li><set name="customername">Jane Doe</set></li>
+                    <li><set name="customername">John Doe</set></li>
+                </random>
+            </li>
+            <li>
+                <think><set name="accountnumber"><map name="accounts"><get name="customername"/></map></set></think>
+                <get name="customername"/>
+            </li>
+          </condition>
+          
+          and my account number is <map name="accounts"><get name="customername"/></map>
+          <think><set name="topic">sssverify</set></think>
+      </template>
+    </category>
+
+    <!-- ACCOUNT NUMBER -->
+    <category>
+      <pattern>^ YOUR BANK ACCOUNT NUMBER ^</pattern>
+      <template>
+          My bank account number is
+          <condition name="customername">
+            <li value="unknown">
+                 <random>
+                     <li><set name="accountnumber">805 7845 3895 061</set></li>
+                    <li><set name="accountnumber">805 7845 3895 062</set></li>
+                    
+                  </random>
+            </li>
+            <li>
+                <set name="accountnumber"><map name="accounts"><get name="customername"/></map></set>
+                <think><set name="topic">sssverify</set></think>
+            </li>
+          </condition>
+      </template>
+    </category>
+    
+    <category>
+      <pattern>^ I CANNOT VERIFY ^ THE ACCOUNT NUMBER ^</pattern>
+      <template>
+          <set name="accountnumber"></set> Oh. Kindly try again. <srai>^ YOUR BANK ACCOUNT NUMBER ^</srai>
+      </template>
+    </category>
+    
+    <category>
+      <pattern>^ WRONG ACCOUNT NUMBER ^</pattern>
+      <that>^ ACCOUNT NUMBER IS ^</that>
+      <template>
+          <set name="customername"></set> Oh. Kindly try again. <srai>^ YOUR BANK ACCOUNT NUMBER ^</srai>
+      </template>
+    </category>
+    
+    <!-- ACCOUNT NAME -->
+    
+    <category>
+      <pattern>^ NAME ON THE ACCOUNT ^</pattern>
+      <template>
+          My name is 
+          <condition name="accountnumber">
+            <li value="unknown">
+                 <random>
+                    <li><set name="customername">Jane Doe</set></li>
+                    <li><set name="customername">John Doe</set></li>
+                  </random>
+            </li>
+            <li>
+                <set name="customername"><map name="accoutnumbers"><get name="accountnumber"/></map></set>
+                <think><set name="topic">sssverify</set></think>
+            </li>
+          </condition>
+      </template>
+    </category>
+    
+    
+    <category>
+      <pattern>^ NAME OF THE ACCOUNT ^</pattern>
+      <template>
+          My name is 
+          <condition name="accountnumber">
+            <li value="unknown">
+                 <random>
+                    <li><set name="customername">Jane Doe</set></li>
+                    <li><set name="customername">John Doe</set></li>
+                  </random>
+            </li>
+            <li>
+                <set name="customername"><map name="accoutnumbers"><get name="accountnumber"/></map></set>
+                <think><set name="topic">sssverify</set></think>
+            </li>
+          </condition>
+      </template>
+    </category>
+     
+    <category>
+      <pattern>^ I CANNOT VERIFY ^ NAME ON THE ACCOUNT ^</pattern>
+      <template>
+          Oh. Kindly try again.
+          <srai>^ NAME OF THE ACCOUNT ^</srai>
+      </template>
+    </category>
+    
+    <category>
+      <pattern>^ I CANNOT VERIFY ^ NAME OF THE ACCOUNT ^</pattern>
+      <template>
+          <set name="customername"></set> Oh. Kindly try again. <srai>^ NAME OF THE ACCOUNT ^</srai>
+      </template>
+    </category>
+    
+    <category>
+      <pattern>^ WRONG NAME ^</pattern>
+      <that>^ MY NAME IS ^</that>
+      <template>
+          <set name="customername"></set> Oh. Kindly try again. <srai>^ NAME OF THE ACCOUNT ^</srai>
+      </template>
+    </category>
+  </topic>
+</aiml>

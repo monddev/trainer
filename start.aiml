@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+ <!-- insert your AIML categories here -->
+ 
+ <category>
+     <pattern>HELLO ^</pattern>
+     <template>Hi. Is this the bank of wealth?</template>
+ </category>
+ 
+ <category>
+     <pattern>HI ^</pattern>
+     <template><srai>HELLO</srai></template>
+ </category>
+ 
+<category>
+    <pattern>HELLO # BANK OF WEALTH #</pattern>
+    <template>Hi. <srai>HOWMAYIHELPYOU</srai>
+    </template>
+</category>
+
+<category>
+    <pattern>HI # BANK OF WEALTH #</pattern>
+    <template>Hi. <srai>HOWMAYIHELPYOU</srai>
+    </template>
+</category>
+
+<category>
+    <pattern>HELLO # BANK OF WEALTH # HOW CAN I HELP YOU</pattern>
+    <template>Hi. <srai>HOWMAYIHELPYOU</srai>
+    </template>
+</category>
+
+<category>
+    <pattern>HI # BANK OF WEALTH # HOW CAN I HELP YOU</pattern>
+    <template>Hi. <srai>HOWMAYIHELPYOU</srai>
+    </template>
+</category>
+ 
+
+<!-- ========================================== -->
+  <category>
+      <pattern>HOWMAYIHELPYOU</pattern>
+      <template>
+          <think><set topic="accountdetails">accountdetails</set></think>
+          I would like to know my remaining money in my account
+      </template>
+  </category>
+  
+  <!-- YES -->
+  <!-- <category>
+      <pattern>$YES #</pattern>
+      <that># IS THIS THE BANK OF WEALTH #</that> 
+      <template><srai>HOWMAYIHELPYOU</srai> 
+      </template>
+  </category> -->
+  
+  <category>
+      <pattern>YES</pattern>
+      <that># IS THIS THE BANK OF WEALTH #</that> 
+      <template>
+           <srai>HOWMAYIHELPYOU</srai> 
+      </template>
+  </category>
+  
+  <category>
+      <pattern>YES ^</pattern>
+      <that># IS THIS THE BANK OF WEALTH #</that> 
+      <template>
+           <srai>HOWMAYIHELPYOU</srai> 
+      </template>
+  </category>
+  
+  <category>
+      <pattern>^ YES * MY NAME IS * HOW CAN I HELP YOU ^</pattern>
+      <that># IS THIS THE BANK OF WEALTH #</that> 
+      <template>
+          <think><set name="agentname"><star index="3"/></set></think>
+           <srai>HOWMAYIHELPYOU</srai> 
+      </template>
+  </category>
+  
+   <!-- NO -->
+  <category>
+      <pattern>NO</pattern>
+      <that># IS THIS THE BANK OF WEALTH #</that> 
+      <template>Ok. Thank you. Goodbye.</template>
+  </category>
+  
+  <category>
+      <pattern>^ NOT # BANK OF WEALTH #</pattern>
+      <template>Ok. Thank you. Goodbye.</template>
+  </category>
+  
+  <category>
+      <pattern>^ NO #</pattern>
+      <that># IS THIS THE BANK OF WEALTH #</that> 
+      <template><srai>NO</srai></template>
+  </category>
+  
+  <category>
+      <pattern>^ NOPE #</pattern>
+      <that># IS THIS THE BANK OF WEALTH #</that> 
+      <template><srai>NO</srai></template>
+  </category>
+  
+   
+  <!-- ========================================== -->
+
+
+</aiml>
