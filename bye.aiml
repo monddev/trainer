@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+    
+  <!-- insert your AIML categories here -->
+  <category>
+      <pattern>BYE</pattern>
+      <template>Thanks for your help. Goodbye!</template>
+  </category>
+  
+  <category>
+      <pattern>^ BYE ^</pattern>
+      <template><srai>BYE</srai></template>
+  </category>
+  
+  <category>
+      <pattern>^ GOODBYE ^</pattern>
+      <template><srai>BYE</srai></template>
+  </category>
+  
+  <category>
+      <pattern>^ GOOD BYE ^</pattern>
+      <template><srai>BYE</srai></template>
+  </category>
+</aiml>

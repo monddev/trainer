@@ -10,6 +10,20 @@
     </category> 
     
     <category>
+      <pattern>^ CANNOT VERIFY YOUR SOCIAL SECURITY ID ^</pattern>
+      <template>
+          Ok. It is <map name="socialsecurity"><get name="customername"/></map>
+      </template>
+    </category>
+    
+    <category>
+      <pattern>^ WRONG SOCIAL SECURITY ID ^</pattern>
+      <template>
+          Ok. It is <map name="socialsecurity"><get name="customername"/></map>
+      </template>
+    </category>
+    
+    <category>
       <pattern>^ IS THERE ANYTHING ELSE THAT I COULD ASSIST YOU WITH ^</pattern>
       <template>
           Yes, If I transfer it to my bank account in Lloyds of London, how long will it take?

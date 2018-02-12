@@ -9,16 +9,10 @@
           Thanks for your help
           <condition name="agentname">
             <li value="unknown"></li>
-            <li><get name="agentname"/></li>
+            <li><first><get name="agentname"/></first></li>
           </condition>
           <think><set name="topic"></set></think>
       </template>
     </category> 
-    
-    <category>
-        <pattern>*</pattern>
-        <template>I’m not sure I understood that. Could you please rephrase?
-        </template>
-    </category>
   </topic>
 </aiml>

@@ -26,7 +26,7 @@
 
     <!-- ACCOUNT NUMBER -->
     <category>
-      <pattern>^ YOUR BANK ACCOUNT NUMBER ^</pattern>
+      <pattern>^ BANK ACCOUNT NUMBER ^</pattern>
       <template>
           My bank account number is
           <condition name="customername">
@@ -62,6 +62,8 @@
     
     <!-- ACCOUNT NAME -->
     
+    <!-- ACCOUNT NAME -->
+    
     <category>
       <pattern>^ NAME ON THE ACCOUNT ^</pattern>
       <template>
@@ -84,6 +86,25 @@
     
     <category>
       <pattern>^ NAME OF THE ACCOUNT ^</pattern>
+      <template>
+          My name is 
+          <condition name="accountnumber">
+            <li value="unknown">
+                 <random>
+                    <li><set name="customername">Jane Doe</set></li>
+                    <li><set name="customername">John Doe</set></li>
+                  </random>
+            </li>
+            <li>
+                <set name="customername"><map name="accoutnumbers"><get name="accountnumber"/></map></set>
+                <think><set name="topic">sssverify</set></think>
+            </li>
+          </condition>
+      </template>
+    </category>
+    
+    <category>
+      <pattern>^ NAME OF ACCOUNT ^</pattern>
       <template>
           My name is 
           <condition name="accountnumber">
